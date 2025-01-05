@@ -9,7 +9,7 @@
     },
     "notepad": {
       "name": "notepad",
-      "version": "1.0",
+      "version": "2.0",
       "install": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/notepad/install.sh",
       "update": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/notepad/update.sh",
       "remove": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/notepad/remove.sh"
