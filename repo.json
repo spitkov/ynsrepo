@@ -1,18 +1,11 @@
 {
   "packages": {
-    "calc": {
-      "name": "calc",
-      "version": "1.1",
-      "install": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/calc/install.sh",
-      "update": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/calc/update.sh",
-      "remove": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/calc/remove.sh"
-    },
-    "notepad": {
-      "name": "notepad",
-      "version": "2.0",
-      "install": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/notepad/install.sh",
-      "update": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/notepad/update.sh",
-      "remove": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/notepad/remove.sh"
+    "ayva": {
+      "name": "ayva",
+      "version": "1.0",
+      "install": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/ayva/install.sh",
+      "update": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/ayva/update.sh",
+      "remove": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/ayva/remove.sh"
     }
   }
 }
