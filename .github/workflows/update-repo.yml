@@ -1,0 +1,65 @@
+name: Update Repository JSON
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'packages/**'
+
+jobs:
+  update-repo-json:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Update repo.json
+        run: |
+          python - <<EOF
+          import os
+          import json
+          from pathlib import Path
+
+          def get_raw_url(path):
+              return f"https://raw.githubusercontent.com/spitkov/ynsrepo/main/{path}"
+
+          def update_repo_json():
+              packages_dir = Path('packages')
+              repo_data = {"packages": {}}
+
+              for package_dir in packages_dir.iterdir():
+                  if package_dir.is_dir():
+                      package_name = package_dir.name
+                      version_file = package_dir / "VERSION"
+                      
+                      if version_file.exists():
+                          version = version_file.read_text().strip()
+                          
+                          package_data = {
+                              "name": package_name,
+                              "version": version,
+                              "install": get_raw_url(str(package_dir / "install.sh")),
+                              "update": get_raw_url(str(package_dir / "update.sh")),
+                              "remove": get_raw_url(str(package_dir / "remove.sh"))
+                          }
+                          
+                          repo_data["packages"][package_name] = package_data
+
+              with open('repo.json', 'w') as f:
+                  json.dump(repo_data, f, indent=2)
+
+          update_repo_json()
+          EOF
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add repo.json
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update repo.json"
+          git push 

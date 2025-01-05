@@ -1,0 +1,11 @@
+{
+  "packages": {
+    "calc": {
+      "name": "calc",
+      "version": "1.0",
+      "install": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/calc/install.sh",
+      "update": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/calc/update.sh",
+      "remove": "https://raw.githubusercontent.com/spitkov/ynsrepo/main/packages/calc/remove.sh"
+    }
+  }
+} 
